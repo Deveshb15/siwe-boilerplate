@@ -5,11 +5,14 @@ import { ConnectButton } from '@rainbow-me/rainbowkit';
 const Home: NextPage = () => {
   return (
     <div className='py-6 justify-center text-center'>
-      <div className='flex justify-center'>
-        <ConnectButton />
-      </div>
 
       <h1 className='text-4xl font-bold mt-6'>🚀 create-web3-frontend</h1>
+
+      <div className='flex justify-center gap-4 py-8'>
+        <ConnectButton />
+        <button className='px-4 py-2 bg-black text-white transform hover:scale-105 rounded-xl'>Sign In With Ethereum</button>
+      </div>
+
       <InfoSection />
     </div>
   );
@@ -17,7 +20,7 @@ const Home: NextPage = () => {
 
 const InfoSection: FC = () => {
   return (
-    <div className='mt-10'>
+    <div className='mt-8'>
       <h2 className='text-xl font-bold'>If you need help</h2>
       <div className='flex flex-col gap-2 mt-2'>
         <a
