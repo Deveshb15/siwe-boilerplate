@@ -26,13 +26,24 @@ const Home: NextPage = () => {
 
     // console.log({ message: message.prepareMessage() })
     const signature = await signMessageAsync({ message: message.prepareMessage() })
-    console.log({ signature })
+    // console.log({ signature })
+
+    const verifyRes = await fetch('/api/verify', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ message, signature }),
+    });
+
+    const verifyData = await verifyRes.json()
+    console.log(verifyData)
   }
 
   return (
     <div className='py-6 justify-center text-center'>
 
-      <h1 className='text-4xl font-bold mt-6'>🚀 create-web3-frontend</h1>
+      <h1 className='text-4xl font-bold mt-6'>Sign In With Ethereum🚀</h1>
 
       <div className='flex justify-center gap-4 py-8'>
         <ConnectButton />
