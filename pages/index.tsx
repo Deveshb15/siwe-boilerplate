@@ -3,6 +3,13 @@ import type { FC } from 'react';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 
 const Home: NextPage = () => {
+
+  const signIn = async() => {
+    const nonceRes = await fetch('/api/nonce')
+    const nonce = await nonceRes.text()
+    alert(nonce)
+  }
+
   return (
     <div className='py-6 justify-center text-center'>
 
@@ -10,7 +17,7 @@ const Home: NextPage = () => {
 
       <div className='flex justify-center gap-4 py-8'>
         <ConnectButton />
-        <button className='px-4 py-2 bg-black text-white transform hover:scale-105 rounded-xl'>Sign In With Ethereum</button>
+        <button onClick={signIn} className='px-4 py-2 bg-black text-white transform hover:scale-105 rounded-xl'>Sign In With Ethereum</button>
       </div>
 
       <InfoSection />
